@@ -1,0 +1,15 @@
+Temp/*
+Library
+obj/debug/*
+*.sln
+*.pidb
+*.unityproj
+*.csproj
+*.userprefs
+*.usertasks
+*.exr*
+*.orig*
+*~HEAD*
+*.cfg
+*.rar
+*.zip
