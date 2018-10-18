@@ -11,6 +11,8 @@ public class EraseOnClick : MonoBehaviour
 	private Camera targetCamera;
 	[SerializeField]
 	private int brushSizeInPixels = 30;
+	[SerializeField]
+	private Color32 brushColor = Color.clear;
 
 	#endregion
 
@@ -27,7 +29,7 @@ public class EraseOnClick : MonoBehaviour
 
 	private void CheckMouseInput()
 	{
-		if (Input.GetMouseButtonDown(0) == false)
+		if (Input.GetMouseButton(0) == false)
 		{
 			return;
 		}
@@ -52,7 +54,7 @@ public class EraseOnClick : MonoBehaviour
 		
 		Color32[] pixels = sprite.TargetTexturePixels;
 		
-		PaintCircleInArray(ref pixels, sprite.TargetTexture.width, (int)pixel.x, (int)pixel.y, brushSizeInPixels, Color.clear);
+		PaintCircleInArray(ref pixels, sprite.TargetTexture.width, (int)pixel.x, (int)pixel.y, brushSizeInPixels, brushColor);
 
 		sprite.TargetTexture.SetPixels32(pixels);
 		sprite.TargetTexture.Apply();
@@ -60,7 +62,7 @@ public class EraseOnClick : MonoBehaviour
 		sprite.TargetTexturePixels = pixels;
 	}
 
-	public void PaintCircleInArray(ref Color32[] colorsArray, int arrayWidth, int xCenter, int yCenter, int radius, Color color)
+	public void PaintCircleInArray(ref Color32[] colorsArray, int arrayWidth, int xCenter, int yCenter, int radius, Color32 color)
 	{
 		int i, x, y = 0;
 		int sqrRadius = radius * radius;
@@ -90,11 +92,6 @@ public class EraseOnClick : MonoBehaviour
 		{
 			array[index] = color;
 		}
-	}
-
-	private int GetOneDIndex (int arrayWidth, int x, int y)
-	{
-		return y * arrayWidth + x;
 	}
 
 	#endregion
