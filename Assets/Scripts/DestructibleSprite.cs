@@ -11,6 +11,7 @@ public class DestructibleSprite : MonoBehaviour
 
 	#region PROPERTIES
 
+	public Color32[] TargetTexturePixels {get; set;}
 	public Bounds SpriteBounds {get; private set;}
 	public SpriteRenderer TargetRenderer {get; private set;}
 	public Texture2D TargetTexture {get; private set;}
@@ -28,7 +29,8 @@ public class DestructibleSprite : MonoBehaviour
 		Sprite source = TargetRenderer.sprite;
 
 		TargetTexture = new Texture2D(source.texture.width, source.texture.height, TextureFormat.ARGB32, false);
-		TargetTexture.SetPixels32(source.texture.GetPixels32());
+		TargetTexturePixels = source.texture.GetPixels32();
+		TargetTexture.SetPixels32(TargetTexturePixels);
 		TargetTexture.Apply();
 
 		TargetSprite = Sprite.Create(TargetTexture, source.rect, source.pivot, source.pixelsPerUnit, 1, SpriteMeshType.FullRect, source.border, false);
