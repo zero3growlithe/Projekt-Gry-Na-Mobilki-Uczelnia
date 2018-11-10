@@ -10,9 +10,13 @@ public class EraseOnClick : MonoBehaviour
 	[SerializeField]
 	private Camera targetCamera;
 	[SerializeField]
-	private int brushSizeInPixels = 30;
+	private int brushOutlineSize = 30;
 	[SerializeField]
-	private Color32 brushColor = Color.clear;
+	private int brushInsideSize = 20;
+	[SerializeField]
+	private Color32 brushOutlineColor = Color.gray;
+	[SerializeField]
+	private Color32 brushInsideColor = Color.clear;
 
 	#endregion
 
@@ -54,7 +58,7 @@ public class EraseOnClick : MonoBehaviour
 		
 		Color32[] pixels = sprite.TargetTexturePixels;
 		
-		PaintCircleInArray(ref pixels, sprite.TargetTexture.width, (int)pixel.x, (int)pixel.y, brushSizeInPixels, brushColor);
+		PaintCircleInArray(ref pixels, sprite.TargetTexture.width, (int)pixel.x, (int)pixel.y, brushInsideSize, brushInsideColor);
 
 		sprite.TargetTexture.SetPixels32(pixels);
 		sprite.TargetTexture.Apply();

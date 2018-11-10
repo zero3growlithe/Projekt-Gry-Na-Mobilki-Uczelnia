@@ -22,6 +22,11 @@ public class DestructibleSprite : MonoBehaviour
 
 	#region FUNCTIONS
 
+	// public bool[] GetPixelsAroundPoint ()
+	// {
+
+	// }
+
 	protected void Start ()
 	{
 		TargetRenderer = gameObject.GetComponent<SpriteRenderer>();
