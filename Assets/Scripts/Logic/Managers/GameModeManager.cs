@@ -49,7 +49,7 @@ public class GameModeManager : MonoBehaviourSingleton<GameModeManager>
 	{
 		if (CurrentGameMode != null)
 		{
-			Destroy(CurrentGameMode.gameObject);
+			DestroyImmediate(CurrentGameMode.gameObject);
 		}
 	}
 

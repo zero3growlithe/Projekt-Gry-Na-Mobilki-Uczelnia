@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4746354633641648}
   - component: {fileID: 114989268209073214}
+  - component: {fileID: 114020377820267282}
+  - component: {fileID: 114719847380919322}
   m_Layer: 0
   m_Name: DefaultGameModeSetup
   m_TagString: Untagged
@@ -40,6 +42,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114020377820267282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1828927804515010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7f18aa62ea200439d5ed529701e3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScore: 0
+--- !u!114 &114719847380919322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1828927804515010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f55a6403cadd14f82890e6d1c280e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114989268209073214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,4 +81,5 @@ MonoBehaviour:
   gameLossConditions:
   - {fileID: 114059839351087864, guid: d552cf950be9c9743a0189194b4f4855, type: 2}
   livesCount: 3
+  currentLivesCount: 0
   maxLivesCount: 5

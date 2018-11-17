@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DefaultGameModeControllers;
 
 public class DefaultGameMode : GameMode
 {
@@ -44,7 +45,6 @@ public class DefaultGameMode : GameMode
 		base.ResetToDefault();
 
 		CurrentLivesCount = LivesCount;
-		ScoreController.Instance.ResetScore();
 	}
 
 	public override void UpdateGameMode ()
