@@ -37,12 +37,17 @@ public class GameModeManager : MonoBehaviourSingleton<GameModeManager>
 	{
 		ClearCurrentGameMode();
 
-		CurrentGameMode = Instantiate(MainGameMode, transform);
+		CurrentGameMode = Instantiate(mode, transform);
 
 		CurrentGameMode.ResetToDefault();
 
 		CurrentGameMode.OnGameWin += NotifyOnGameModeSuccess;
 		CurrentGameMode.OnGameLoss += NotifyOnGameModeFail;
+	}
+
+	public T GetCurrentGameMode<T>() where T : GameMode
+	{
+		return CurrentGameMode as T;
 	}
 
 	public void ClearCurrentGameMode ()
@@ -53,11 +58,19 @@ public class GameModeManager : MonoBehaviourSingleton<GameModeManager>
 		}
 	}
 
-	protected void Update ()
+	public void RestartCurrentGameMode ()
 	{
 		if (CurrentGameMode != null)
 		{
-			CurrentGameMode.UpdateGameMode();
+			CurrentGameMode.ResetToDefault();
+		}
+	}
+
+	protected void Update ()
+	{
+		if (CurrentGameMode != null && CurrentGameMode.IsActive == true)
+		{
+			CurrentGameMode.GameModeTick();
 		}
 	}
 

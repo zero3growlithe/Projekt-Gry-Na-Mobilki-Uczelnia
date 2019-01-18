@@ -13,7 +13,12 @@ public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
 			{
 				if (instance == null)
 				{
-					instance = GameObject.FindObjectOfType<T>() as T;
+					T[] objects = Resources.FindObjectsOfTypeAll<T>();
+					
+					if (objects.Length != 0)
+					{
+						instance = objects[0] as T;
+					}
 				}
 
 				if (instance != null)

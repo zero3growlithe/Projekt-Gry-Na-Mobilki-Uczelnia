@@ -16,10 +16,21 @@ public class DefaultGameMode : GameMode
 	[SerializeField]
 	private int maxLivesCount = 5;
 
+	[Header("[ Difficulty ]")]
+	[SerializeField]
+	private ItemsSpawnCollection[] itemsCollections;
+	[SerializeField]
+	private MultiplierCurve itemsSpeedToTime = new MultiplierCurve(0, 1, 1, 2);
+	[SerializeField]
+	private MultiplierCurve itemsSpawnRateToTime = new MultiplierCurve(0, 1, 1, 2);
+	[SerializeField]
+	private MultiplierCurve itemCollectionIncreaseToTime = new MultiplierCurve(0, 1, 1, 2);
+
 	#endregion
 
 	#region PROPERTIES
 
+	// VALUES
 	public int LivesCount {
 		get {return livesCount;}
 	}
@@ -29,6 +40,17 @@ public class DefaultGameMode : GameMode
 	}
 	public int MaxLivesCount {
 		get {return maxLivesCount;}
+	}
+
+	// DIFFICULTY
+	private MultiplierCurve ItemsSpeedToTime {
+		get {return itemsSpeedToTime;}
+	}
+	private MultiplierCurve ItemsSpawnRateToTime {
+		get {return itemsSpawnRateToTime;}
+	}
+	private MultiplierCurve ItemCollectionIncreaseToTime {
+		get {return itemCollectionIncreaseToTime;}
 	}
 
 	#endregion
@@ -47,9 +69,9 @@ public class DefaultGameMode : GameMode
 		CurrentLivesCount = LivesCount;
 	}
 
-	public override void UpdateGameMode ()
+	public override void GameModeTick ()
 	{
-		base.UpdateGameMode();
+		base.GameModeTick();
 
 		UpdateHUD();
 	}
@@ -63,11 +85,6 @@ public class DefaultGameMode : GameMode
 
 		GameHUDController.Instance.UpdateLivesLabel(CurrentLivesCount);
 		GameHUDController.Instance.UpdateScoreLabel(ScoreController.Instance.CurrentScore);
-	}
-
-	protected override void Awake()
-	{
-		base.Awake();
 	}
 
 	#endregion

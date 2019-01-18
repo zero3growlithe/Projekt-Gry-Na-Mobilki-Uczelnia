@@ -39,18 +39,13 @@ public class GameMode : MonoBehaviour
 
 	#region FUNCTIONS
 
-	public void SetState(bool state)
+	public void SetActiveState(bool state)
 	{
 		IsActive = state;
 	}
 
-	public virtual void UpdateGameMode()
+	public virtual void GameModeTick()
 	{
-		if (IsActive == false)
-		{
-			return;
-		}
-
 		CheckWinConditions();
 		CheckLossConditions();
 	}
@@ -60,12 +55,12 @@ public class GameMode : MonoBehaviour
 
 	}
 
-	protected virtual void Awake ()
+	protected virtual void HandleGameWinEvent ()
 	{
 
 	}
 
-	protected virtual void Start ()
+	protected virtual void HandleGameLossEvent ()
 	{
 
 	}
@@ -78,6 +73,7 @@ public class GameMode : MonoBehaviour
 			{
 				IsActive = false;
 
+				HandleGameWinEvent();
 				OnGameWin();
 			}
 		}
@@ -91,6 +87,7 @@ public class GameMode : MonoBehaviour
 			{
 				IsActive = false;
 
+				HandleGameLossEvent();
 				OnGameLoss();
 			}
 		}

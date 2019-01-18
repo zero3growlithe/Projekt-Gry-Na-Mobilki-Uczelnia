@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
 	public enum GameState
 	{
+		TITLE,
 		MAIN_MENU,
 		PAUSE_MENU,
 		GAME
