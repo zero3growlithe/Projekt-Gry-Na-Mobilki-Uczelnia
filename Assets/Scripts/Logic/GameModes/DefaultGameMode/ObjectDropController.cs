@@ -40,9 +40,6 @@ namespace DefaultGameModeControllers
 
 		private void HandleUIBehaviourDropEvent(UIBehaviour target)
 		{
-			// TODO: update score with dropped item's score
-			// temp
-			ScoreController.Instance.ReportScore(100);
 		}
 
 		#endregion
