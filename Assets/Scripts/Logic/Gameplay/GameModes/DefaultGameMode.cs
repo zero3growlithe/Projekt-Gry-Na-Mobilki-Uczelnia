@@ -67,24 +67,20 @@ public class DefaultGameMode : GameMode
 		base.ResetToDefault();
 
 		CurrentLivesCount = LivesCount;
+		ConveyorBeltsManager.Instance.ResetBelts();
+		ConveyorBeltsManager.Instance.SetState(true);
 	}
 
 	public override void GameModeTick ()
 	{
 		base.GameModeTick();
-
-		UpdateHUD();
 	}
 
-	private void UpdateHUD()
+	protected override void HandleGameLossEvent()
 	{
-		if (GameHUDController.Instance == null)
-		{
-			return;
-		}
-
-		GameHUDController.Instance.UpdateLivesLabel(CurrentLivesCount);
-		GameHUDController.Instance.UpdateScoreLabel(ScoreController.Instance.CurrentScore);
+		ConveyorBeltsManager.Instance.SetState(false);
+		GUIManager.Instance.SetInGameHUDState(false);
+		GUIManager.Instance.SetGameOverScreenState(true);
 	}
 
 	#endregion

@@ -25,7 +25,7 @@ public class UIImageCounter : MonoBehaviour
 	{
 		for (int i = 0; i < TargetImages.Length; i++)
 		{
-			TargetImages[i].SetActive(i < count);
+			TargetImages[i].SetActiveOptimized(i < count);
 		}
 	}
 

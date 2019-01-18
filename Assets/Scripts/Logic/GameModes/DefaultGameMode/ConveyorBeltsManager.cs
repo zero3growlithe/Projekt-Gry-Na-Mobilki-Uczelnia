@@ -34,10 +34,17 @@ public class ConveyorBeltsManager : MonoBehaviourSingleton<ConveyorBeltsManager>
 			SpawnersCollection[i].SetActive(state);
 		}
 
-
 		for (int i = 0; i < BeltsCollection.Length; i++)
 		{
 			BeltsCollection[i].SetActive(state);
+		}
+	}
+
+	public void ResetBelts ()
+	{
+		for (int i = 0; i < BeltsCollection.Length; i++)
+		{
+			BeltsCollection[i].ClearSpawnedItems();
 		}
 	}
 

@@ -32,16 +32,6 @@ public class GameHUDController : MonoBehaviourSingleton<GameHUDController>
 		GUIManager.Instance.SetPauseMenuState(true);
 	}
 
-	public void UpdateLivesLabel (int count)
-	{
-		LivesCounter.SetActiveByCount(count);
-	}
-
-	public void UpdateScoreLabel (int score)
-	{
-		ScoreCounter.SetValue(score);
-	}
-
 	#endregion
 
 	#region CLASS_ENUMS

@@ -13,6 +13,8 @@ public class GUIManager : MonoBehaviourSingleton<GUIManager>
 	private PauseMenuController pauseMenu;
 	[SerializeField]
 	private GameHUDController inGameHUD;
+	[SerializeField]
+	private GameOverScreenController gameOverScreen;
 
 	#endregion
 
@@ -27,6 +29,9 @@ public class GUIManager : MonoBehaviourSingleton<GUIManager>
 	}
 	public GameHUDController InGameHUD {
 		get {return inGameHUD;}
+	}
+	public GameOverScreenController GameOverScreen {
+		get {return gameOverScreen;}
 	}
 
 	#endregion
@@ -48,6 +53,11 @@ public class GUIManager : MonoBehaviourSingleton<GUIManager>
 		SetGUIState(InGameHUD.gameObject, state, hideOther);
 	}
 
+	public void SetGameOverScreenState (bool state = true, bool hideOther = false)
+	{
+		SetGUIState(GameOverScreen.gameObject, state, hideOther);
+	}
+
 	public void SetGUIState (GameObject target, bool state, bool hideOther)
 	{
 		if (hideOther == true)
@@ -63,6 +73,7 @@ public class GUIManager : MonoBehaviourSingleton<GUIManager>
 		MainMenu.gameObject.SetActive(false);
 		PauseMenu.gameObject.SetActive(false);
 		InGameHUD.gameObject.SetActive(false);
+		GameOverScreen.gameObject.SetActive(false);
 	}
 
 	protected override void Awake()

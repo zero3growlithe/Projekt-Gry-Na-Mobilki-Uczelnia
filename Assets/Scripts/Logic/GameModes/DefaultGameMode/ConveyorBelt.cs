@@ -11,6 +11,8 @@ public class ConveyorBelt : MonoBehaviour
 	[SerializeField]
 	private MultiplierFloat moveSpeed;
 	[SerializeField]
+	private Transform container;
+	[SerializeField]
 	private Transform endPoint;
 
     #endregion
@@ -19,6 +21,9 @@ public class ConveyorBelt : MonoBehaviour
 
 	public MultiplierFloat MoveSpeed {
 		get {return moveSpeed;}
+	}
+	public Transform Container {
+		get {return container != null ? container : transform;}
 	}
 	public Transform EndPoint {
 		get {return endPoint;}
@@ -40,6 +45,14 @@ public class ConveyorBelt : MonoBehaviour
 		MoveSpeed.Multiplier = value;
 	}
 
+	public void ClearSpawnedItems ()
+	{
+		for (int i = 0; i < Container.childCount; i++)
+		{
+			Destroy(Container.GetChild(i).gameObject);
+		}
+	}
+
 	protected void Update ()
 	{
 		if (IsEnabled == false)
@@ -56,9 +69,9 @@ public class ConveyorBelt : MonoBehaviour
 		Transform itemTransform;
 
 		// sigh....
-		for (int i = 0; i < transform.childCount; i++)
+		for (int i = 0; i < Container.childCount; i++)
 		{
-			item = transform.GetChild(i).GetComponent<DragableUIElement>();
+			item = Container.GetChild(i).GetComponent<DragableUIElement>();
 			itemTransform = item.transform;
 
 			if (item.IsBeingDragged == true)

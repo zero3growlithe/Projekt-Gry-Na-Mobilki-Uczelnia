@@ -13,12 +13,7 @@ public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
 			{
 				if (instance == null)
 				{
-					T[] objects = Resources.FindObjectsOfTypeAll<T>();
-					
-					if (objects.Length != 0)
-					{
-						instance = objects[0] as T;
-					}
+					instance = GameObject.FindObjectOfType<T>() as T;
 				}
 
 				if (instance != null)
@@ -44,6 +39,8 @@ public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
 		}
 		else if (Instance != this)
 		{
+			Debug.LogError("Multiple instances of " + this + " found. Destroying duplicate instance.");
+			
 			Destroy(gameObject);
 		}
 	}
