@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DefaultGameModeControllers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,9 +31,20 @@ public class UIDropTargetElement : MonoBehaviour, IDropHandler
 
 	protected virtual void HandleOnDropEvent (GameObject target)
 	{
-		UIEventSystem.Instance.NotifyOnUIBehaviourDrop(TargetUIBehaviour);
-	}
 
+		UIEventSystem.Instance.NotifyOnUIBehaviourDrop(TargetUIBehaviour);
+        GameplayItemContainer container = gameObject.GetComponent<GameplayItemContainer>();
+        GameplayItem item = target.GetComponent<GameplayItem>();
+
+        if (container.ItemMatchesContainter(item))
+        {
+            ScoreController.Instance.ReportScore(100);
+        } else
+        {
+            ScoreController.Instance.ReportScore(-100);
+        }
+
+	}
 	#endregion
 
 	#region CLASS_ENUMS
