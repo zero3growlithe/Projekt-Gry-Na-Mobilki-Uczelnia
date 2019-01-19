@@ -52,7 +52,20 @@ MonoBehaviour:
   livesCount: 3
   currentLivesCount: 0
   maxLivesCount: 5
-  itemsCollections: []
+  baseItemsCollection:
+  - {fileID: 5776701672488911994, guid: 5793f1be01dac5e4d9ecf2b09fbaadcd, type: 3}
+  - {fileID: 5776701672488911994, guid: 2edecd0cddbc5674aafe6a9343999f64, type: 3}
+  - {fileID: 5776701672488911994, guid: 858cb30c635321145ab427acb6edef22, type: 3}
+  - {fileID: 5776701672488911994, guid: 2ffd05db1ee95194097ff92a9628ddd5, type: 3}
+  additionalItemsCollection:
+  - {fileID: 5776701672488911994, guid: 5793f1be01dac5e4d9ecf2b09fbaadcd, type: 3}
+  - {fileID: 5776701672488911994, guid: 2ff0f2ba6a63ef94b9d878db473fa05e, type: 3}
+  - {fileID: 5776701672488911994, guid: 2edecd0cddbc5674aafe6a9343999f64, type: 3}
+  - {fileID: 5776701672488911994, guid: 858cb30c635321145ab427acb6edef22, type: 3}
+  - {fileID: 5776701672488911994, guid: 60fb6de25a357f64895144186a1c917f, type: 3}
+  - {fileID: 5776701672488911994, guid: f9810a0d0ffaefe4b9ab36984d9d3703, type: 3}
+  - {fileID: 5776701672488911994, guid: 2ffd05db1ee95194097ff92a9628ddd5, type: 3}
+  - {fileID: 5776701672488911994, guid: 774563717f2b80e4f9163b828747f91c, type: 3}
   itemsSpeedToTime:
     curve:
       serializedVersion: 2
@@ -78,8 +91,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    valueMultiplier: 1
-    timeMultiplier: 1
+    valueMultiplier: 3
+    timeMultiplier: 180
   itemsSpawnRateToTime:
     curve:
       serializedVersion: 2
@@ -105,8 +118,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    valueMultiplier: 1
-    timeMultiplier: 1
+    valueMultiplier: 3
+    timeMultiplier: 180
   itemCollectionIncreaseToTime:
     curve:
       serializedVersion: 2
@@ -114,7 +127,7 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0
+        inSlope: Infinity
         outSlope: 1
         tangentMode: 69
         weightedMode: 0
@@ -124,7 +137,7 @@ MonoBehaviour:
         time: 1
         value: 1
         inSlope: 1
-        outSlope: 1
+        outSlope: Infinity
         tangentMode: 69
         weightedMode: 0
         inWeight: 0
@@ -132,8 +145,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    valueMultiplier: 1
-    timeMultiplier: 1
+    valueMultiplier: 20
+    timeMultiplier: 180
 --- !u!114 &114020377820267282
 MonoBehaviour:
   m_ObjectHideFlags: 0

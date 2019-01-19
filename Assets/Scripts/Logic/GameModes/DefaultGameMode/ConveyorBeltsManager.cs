@@ -6,6 +6,8 @@ public class ConveyorBeltsManager : MonoBehaviourSingleton<ConveyorBeltsManager>
 {
 	#region MEMBERS
 
+	public System.Action<GameplayItem> OnItemReachBeltEnd = delegate{};
+
 	[SerializeField]
 	private ConveyorBelt[] beltsCollection;
 	[SerializeField]
@@ -64,12 +66,45 @@ public class ConveyorBeltsManager : MonoBehaviourSingleton<ConveyorBeltsManager>
 		}
 	}
 
-	public void SetItemsCollection (GameObject[] collection)
+	public void SetItemsCollection (GameplayItem[] collection)
 	{
 		for (int i = 0; i < SpawnersCollection.Length; i++)
 		{
 			SpawnersCollection[i].SetObjectsCollection(collection);
 		}
+	}
+
+	protected override void Awake ()
+	{
+		base.Awake();
+		
+		AttachToEvents();
+	}
+
+	protected void OnDestroy ()
+	{
+		DetachFromEvents();
+	}
+
+	private void AttachToEvents ()
+	{
+		for (int i = 0; i < BeltsCollection.Length; i++)
+		{
+			BeltsCollection[i].OnItemReachedEnd += NotifyOnItemReachEnd;
+		}
+	}
+	
+	private void DetachFromEvents ()
+	{
+		for (int i = 0; i < BeltsCollection.Length; i++)
+		{
+			BeltsCollection[i].OnItemReachedEnd -= NotifyOnItemReachEnd;
+		}
+	}
+
+	private void NotifyOnItemReachEnd (GameplayItem item)
+	{
+		OnItemReachBeltEnd(item);
 	}
 
 	#endregion

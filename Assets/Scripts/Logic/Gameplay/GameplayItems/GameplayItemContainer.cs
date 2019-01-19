@@ -9,15 +9,24 @@ namespace DefaultGameModeControllers
 	public class GameplayItemContainer : UIDropTargetElement
 	{
 		public ContainerTypes ContainerType;
+		public GameplayItem.ItemTypes[] AcceptedItemTypes;
 
 		public GameplayItemContainer(ContainerTypes type)
 		{
 			this.ContainerType = type;
 		}
 
-		public Boolean ItemMatchesContainter(GameplayItem item)
+		public bool ItemMatchesContainter(GameplayItem item)
 		{
-			return ((int)this.ContainerType).Equals((int)item.ItemType % 4);
+			for (int i = 0; i < AcceptedItemTypes.Length; i++)
+			{
+				if (item.ItemType == AcceptedItemTypes[i])
+				{
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 		protected override void HandleOnDropEvent(GameObject target)
@@ -37,14 +46,17 @@ namespace DefaultGameModeControllers
 				ScoreController.Instance.ReportScore(-100);
 				GameModeManager.Instance.GetCurrentGameMode<DefaultGameMode>().AddLives(-1);
 			}
+
+			Destroy(target);
 		}
 
 		public enum ContainerTypes
 		{
-			CAT = 0,
-			POT = 1,
-			HEDGEHOG = 2,
-			TRASH = 3,
+			CAT,
+			POT,
+			HEDGEHOG,
+			TRASH,
+			FLOOR,
 		}
 	}
 }

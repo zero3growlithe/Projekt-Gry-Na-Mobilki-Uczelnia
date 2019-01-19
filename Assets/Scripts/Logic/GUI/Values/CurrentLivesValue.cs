@@ -12,7 +12,7 @@ public class CurrentLivesValue : ClassValue
 	#region PROPERTIES
 
 	public override double DoubleValue {
-		get { return GameModeManager.Instance.GetCurrentGameMode<DefaultGameMode>().LivesCount; }
+		get { return GameModeManager.Instance.GetCurrentGameMode<DefaultGameMode>().CurrentLivesCount; }
 	}
 	public override string StringValue {
 		get { return DoubleValue.ToString();; }

@@ -6,7 +6,7 @@ public class ConveyorBelt : MonoBehaviour
 {
     #region MEMBERS
 
-    public System.Action<DragableUIElement> OnItemReachedEnd = delegate{};
+    public System.Action<GameplayItem> OnItemReachedEnd = delegate{};
 
 	[SerializeField]
 	private MultiplierFloat moveSpeed;
@@ -65,13 +65,12 @@ public class ConveyorBelt : MonoBehaviour
 
 	private void UpdateItems ()
 	{
-		DragableUIElement item;
+		GameplayItem item;
 		Transform itemTransform;
 
-		// sigh....
 		for (int i = 0; i < Container.childCount; i++)
 		{
-			item = Container.GetChild(i).GetComponent<DragableUIElement>();
+			item = Container.GetChild(i).GetComponent<GameplayItem>();
 			itemTransform = item.transform;
 
 			if (item.IsBeingDragged == true)
@@ -84,6 +83,7 @@ public class ConveyorBelt : MonoBehaviour
 			if ((EndPoint.position - itemTransform.position).magnitude == 0)
 			{
 				OnItemReachedEnd(item);
+				itemTransform.SetParent(EndPoint);
 			}
 		}
 	}

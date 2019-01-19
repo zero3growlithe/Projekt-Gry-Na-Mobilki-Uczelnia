@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemsSpawnCollection : MonoBehaviour
+[System.Serializable]
+public class ItemsSpawnCollection
 {
 	#region MEMBERS
 

@@ -7,7 +7,7 @@ public class ObjectSpawner : MonoBehaviour
 	#region MEMBERS
 
     [SerializeField]
-    private GameObject[] objectsCollection;
+    private GameplayItem[] objectsCollection;
     [SerializeField]
     private MultiplierFloat spawnFrequency;
 
@@ -21,7 +21,7 @@ public class ObjectSpawner : MonoBehaviour
 
 	#region PROPERTIES
 
-    public GameObject[] ObjectsCollection {
+    public GameplayItem[] ObjectsCollection {
     	get {return objectsCollection;}
     	private set {objectsCollection = value;}
     }
@@ -48,7 +48,7 @@ public class ObjectSpawner : MonoBehaviour
         IsEnabled = state;
     }
 
-    public void SetObjectsCollection (GameObject[] collection)
+    public void SetObjectsCollection (GameplayItem[] collection)
     {
         ObjectsCollection = collection;
     }
@@ -65,15 +65,15 @@ public class ObjectSpawner : MonoBehaviour
 
     private void HandleSpawning ()
     {
-        if (Time.time < NextSpawnTime)
+        if (ObjectsCollection.Length == 0 || Time.time < NextSpawnTime)
         {
             return;
         }
 
         NextSpawnTime = Time.time + 1f / SpawnFrequency.Value;
 
-        GameObject randomItem = ObjectsCollection[Random.Range(0, ObjectsCollection.Length)];
-        GameObject spawnedItem = Instantiate(randomItem, SpawnContainer);
+        GameplayItem randomItem = ObjectsCollection[Random.Range(0, ObjectsCollection.Length)];
+        GameplayItem spawnedItem = Instantiate(randomItem, SpawnContainer);
 
         spawnedItem.transform.position = SpawnPoint.position;
     }

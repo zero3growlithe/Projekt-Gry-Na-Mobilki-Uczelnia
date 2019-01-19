@@ -5,24 +5,19 @@ using System.Text;
 
 using UnityEngine;
 
-public class GameplayItem : MonoBehaviour
+public class GameplayItem : DragableUIElement
 {
-    public ItemTypes ItemType;
+	public ItemTypes ItemType;
 
-    //GameplayItem(ItemTypes item)
-    //{
-    //    this.ItemType = item;
-    //}
-
-    public enum ItemTypes
-    {
-    FISH = 0,
-    DRUMSTICK = 4,
-    MUSHROOMS = 1,
-    LEEK = 5,
-    BUGS = 2,
-    APPLE = 6,
-    SHOE = 3,
-    CAN = 7
-}
+	public enum ItemTypes
+	{
+		FISH,
+		MEAT,
+		MUSHROOMS,
+		LEEK,
+		WORMS,
+		APPLE,
+		SHOE,
+		CAN
+	}
 }
