@@ -91,7 +91,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    valueMultiplier: 3
+    valueMultiplier: 5
     timeMultiplier: 180
   itemsSpawnRateToTime:
     curve:
@@ -118,7 +118,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    valueMultiplier: 3
+    valueMultiplier: 5
     timeMultiplier: 180
   itemCollectionIncreaseToTime:
     curve:
@@ -145,7 +145,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    valueMultiplier: 20
+    valueMultiplier: 30
     timeMultiplier: 180
 --- !u!114 &114020377820267282
 MonoBehaviour:

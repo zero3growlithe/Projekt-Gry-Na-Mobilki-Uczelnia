@@ -98,6 +98,8 @@ public class DefaultGameMode : GameMode
 	{
 		base.GameModeTick();
 
+		GameTime += Time.deltaTime;
+		
 		// control multipliers
 		ConveyorBeltsManager.Instance.SetSpawnRateMultiplier(1f + ItemsSpeedToTime.Evaluate(GameTime));
 		ConveyorBeltsManager.Instance.SetMoveMultiplier(1f + ItemsSpawnRateToTime.Evaluate(GameTime));
@@ -121,6 +123,7 @@ public class DefaultGameMode : GameMode
 
 	protected virtual void OnDestroy ()
 	{
+		ConveyorBeltsManager.Instance.SetState(false);
 		ConveyorBeltsManager.Instance.OnItemReachBeltEnd -= HandleOnItemReachBeltEndEvent;
 	}
 

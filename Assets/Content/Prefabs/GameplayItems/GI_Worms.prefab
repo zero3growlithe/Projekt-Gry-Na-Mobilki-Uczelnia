@@ -11,6 +11,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GI_Worms
       objectReference: {fileID: 0}
+    - target: {fileID: 114452597006884362, guid: a85101aee30f487438cdf97a5ccf680b,
+        type: 3}
+      propertyPath: ItemType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 224792088646895752, guid: a85101aee30f487438cdf97a5ccf680b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -131,20 +136,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114452597006884362, guid: a85101aee30f487438cdf97a5ccf680b,
-        type: 3}
-      propertyPath: ItemType
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 224917380508006882, guid: a85101aee30f487438cdf97a5ccf680b,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 82.92
+      value: 109.84
       objectReference: {fileID: 0}
     - target: {fileID: 224917380508006882, guid: a85101aee30f487438cdf97a5ccf680b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 82.92
+      value: 109.3
       objectReference: {fileID: 0}
     - target: {fileID: 114826482109367314, guid: a85101aee30f487438cdf97a5ccf680b,
         type: 3}
