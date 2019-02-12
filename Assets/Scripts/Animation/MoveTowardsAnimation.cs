@@ -28,7 +28,7 @@ public class MoveTowardsAnimation : MonoBehaviour
 	{
 		float distanceToTarget = Vector3.Distance(targetToMove.position, targetPoint.position);
 
-		while (Mathf.Approximately(distanceToTarget, 0) == false)
+		while (distanceToTarget > 0.01f)
 		{
 			targetToMove.position = Vector3.MoveTowards(targetToMove.position, targetPoint.position, Time.deltaTime * speed);
 

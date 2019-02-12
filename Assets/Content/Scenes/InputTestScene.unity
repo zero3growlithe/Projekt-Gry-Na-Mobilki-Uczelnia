@@ -142,7 +142,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 868578429}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &505412572
+--- !u!114 &505412573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -559,6 +559,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224451957100838936, guid: ca374b6af16311e498836c2507a6f7a6,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224451957100838936, guid: ca374b6af16311e498836c2507a6f7a6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224451957100838936, guid: ca374b6af16311e498836c2507a6f7a6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224451957100838936, guid: ca374b6af16311e498836c2507a6f7a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224451957100838936, guid: ca374b6af16311e498836c2507a6f7a6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 596
+      objectReference: {fileID: 0}
+    - target: {fileID: 224451957100838936, guid: ca374b6af16311e498836c2507a6f7a6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1060
       objectReference: {fileID: 0}
     - target: {fileID: 4056445289151201446, guid: ca374b6af16311e498836c2507a6f7a6,
         type: 3}
